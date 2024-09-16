@@ -5,7 +5,7 @@ for(let i = 0; i < 256; i++){
     div.classList.add("grid-box");
 
     // div.addEventListener("mouseenter", function(){
-        div.style.backgroundColor = "black";
+        div.style.backgroundColor = "grey";
     //})
 
 
