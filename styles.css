@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Allow vertical stacking */
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Keep them centered horizontally */
+}
+
+#flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn {
+    margin-top: 20px; /* Add some space from the top if necessary */
+}
+
+#grid-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 500px;
+    width: 500px;
+    margin-top: 20px; /* Optional: Space between the button and the grid */
+}
+
+.grid-box {
+    flex: 0 0 calc(100%/16);
+}
