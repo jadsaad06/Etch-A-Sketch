@@ -6,15 +6,23 @@ const gridContainer = document.querySelector("#grid-container");
 
 //set grid to grid size
 let setGrid = function(gridSize){
-    
+    gridContainer.textContent = '';
+    let red = 0;
+    let blue = 0;
+    let green = 0;
+
     for(let i = 0; i < gridSize*gridSize; i++){
         const div = document.createElement("div");
+
         div.classList.add("grid-box");
-    
         div.setAttribute("style", `flex: 0 0 calc(100%/${gridSize}); background-color: grey`);
-    
+        
+        red = Math.floor(Math.random * 256);
+        green = Math.floor(Math.random * 256);
+        blue = Math.floor(Math.random * 256);
+
          div.addEventListener("mouseenter", function(){
-            div.style.backgroundColor = "black";
+            div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         })
     
         gridContainer.appendChild(div);
@@ -36,10 +44,17 @@ reset.addEventListener("click", resetGrid);
 
 
 //delete grid function
-
+const delGrid = function(){
+    gridContainer.textContent = '';
+}
 //create change grid size button
 const getGridSize = function(){
     let newGridSize = prompt("Enter your desired grid size (1 - 100)")
+
+    if(newGridSize == null){
+        return; //leave function if canceled
+    }
+
     newGridSize = parseInt(newGridSize);
 
     while(!Number.isInteger(newGridSize) || newGridSize < 1 || newGridSize > 100){  
@@ -50,6 +65,7 @@ const getGridSize = function(){
         newGridSize = prompt("Please Enter a Valid Number!\nEnter your desired grid size (1 - 100)");  
     }
     
+
     return newGridSize;
 }
 
