@@ -23,14 +23,33 @@ let setGrid = function(gridSize){
 //create reset button
 const reset = document.querySelector("#reset");
 
-reset.addEventListener("click", function(){
+const resetGrid = function(){
     const div = document.querySelectorAll(".grid-box");
 
     div.forEach((gridBox) => {
         gridBox.style.backgroundColor = "grey";
     });
-})
+}
 
+reset.addEventListener("click", resetGrid());
+
+
+//create change grid size button
+const getGridSize = function(){
+    let newGridSize = prompt("Enter your desired grid size (1 - 100)")
+    newGridSize = parseInt(newGridSize);
+
+    while(!Number.isInteger(newGridSize) || newGridSize < 1 || newGridSize > 100){  
+        newGridSize = prompt("Please Enter a Valid Number!\nEnter your desired grid size (1 - 100)");  
+    }
+    
+    resetGrid();
+    return newGridSize;
+}
+
+const gridSizeBtn = document.querySelector("#changeGridSize");
+
+gridSizeBtn.addEventListener("click", () => {const newSize = getGridSize(); setGrid(newSize);})
 
 
 //start the program
