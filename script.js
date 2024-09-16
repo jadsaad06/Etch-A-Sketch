@@ -15,13 +15,14 @@ let setGrid = function(gridSize){
         const div = document.createElement("div");
 
         div.classList.add("grid-box");
-        div.setAttribute("style", `flex: 0 0 calc(100%/${gridSize}); background-color: grey`);
-        
-        red = Math.floor(Math.random * 256);
-        green = Math.floor(Math.random * 256);
-        blue = Math.floor(Math.random * 256);
+        div.setAttribute("style", `flex: 0 0 calc(100%/${gridSize}); background-color: black`);
+
 
          div.addEventListener("mouseenter", function(){
+            red = Math.floor(Math.random() * 256);
+            green = Math.floor(Math.random() * 256);
+            blue = Math.floor(Math.random() * 256);
+
             div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         })
     
@@ -36,7 +37,7 @@ const resetGrid = function(){
     const div = document.querySelectorAll(".grid-box");
 
     div.forEach((gridBox) => {
-        gridBox.style.backgroundColor = "grey";
+        gridBox.style.backgroundColor = "black";
     });
 }
 
