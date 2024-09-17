@@ -44,10 +44,7 @@ const resetGrid = function(){
 reset.addEventListener("click", resetGrid);
 
 
-//delete grid function
-const delGrid = function(){
-    gridContainer.textContent = '';
-}
+
 //create change grid size button
 const getGridSize = function(){
     let newGridSize = prompt("Enter your desired grid size (1 - 100)")
@@ -74,7 +71,7 @@ const gridSizeBtn = document.querySelector("#changeGridSize");
 
 gridSizeBtn.addEventListener("click", () => {
     const newSize = getGridSize();
-    setGrid(newSize);
+    if(newSize != null) setGrid(newSize);
 })
 
 
